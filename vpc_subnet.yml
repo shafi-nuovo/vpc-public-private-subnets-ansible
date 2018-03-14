@@ -1,0 +1,20 @@
+- name: Creating vpc with subnets
+  hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+   - name: VPC Creation
+     ec2_vpc: 
+      aws_access_key: AKIAJ3MAK5QUCUOEHVHQ
+      aws_secret_key: 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
+      cidr_block: 192.20.0.0/16
+      region: us-west-2
+      state: present
+      resource_tags: { "Env":"Dev" }
+      subnets:
+       - cidr: 192.20.1.0/24
+       - cidr: 192.20.2.0/24
+       - cidr: 192.20.3.0/24
+       - cidr: 192.20.4.0/24
+       - cidr: 192.20.5.0/24
+       - cidr: 192.20.6.0/24

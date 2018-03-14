@@ -1,0 +1,17 @@
+- name: setup public subnets
+  hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+   - ec2_vpc_route_table:
+      aws_access_key: AKIAJ3MAK5QUCUOEHVHQ
+      aws_secret_key: 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
+      vpc_id: vpc-849beffd
+      region: us-west-2
+      subnets:
+       - subnet-04c1465e
+       - subnet-4ecd4a14
+       - subnet-f8cc4ba2
+      routes:
+       - dest: 0.0.0.0/0
+         gateway_id: igw-c65cc8a0
